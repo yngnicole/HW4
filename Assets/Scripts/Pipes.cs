@@ -10,4 +10,6 @@ public class Pipes : MonoBehaviour
     // child top pipe
     // child bottom pipe.
     // invisible point wall. ontrigger enter if want at right of pipe 
+    // Pipes move to the left endlessly
+    // Pipes have variation as to where the gap between the top and bottom pipes are placed.
 }
