@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     //needs ref to player 
-    // singleton so the locator is player 
-    // created pipes
+    // singleton. gamecontroller is locator
+    // created pipes. instantiate. destory. spawn location. random. range. and diff height. moves left. infinite 
+    // subs to ui and audio
+    // The score code uses a Singleton to subscribe to any events raised.
 }

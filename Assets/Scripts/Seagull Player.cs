@@ -7,5 +7,6 @@ public class YellowBirdPlayer : MonoBehaviour
     // points
     // collider 
     // collides with pipes and trigger event (points) 
-    // subscribe to events: UI and Audio
+    // subscribe to events: UI and Audio maybe not bc not locater
+    // collision
 }
