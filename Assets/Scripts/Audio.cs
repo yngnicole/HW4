@@ -4,18 +4,6 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    [SerializeField] AudioSource source;
-    // Start is called before the first frame update
-    //dfnklsn
-    
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // audio soruce 
+    // events plays audio
 }

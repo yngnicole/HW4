@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // collider
+    // infinte 
+    // locate gamecontroller and sub 
+    // child top pipe
+    // child bottom pipe.
+    // invisible point wall. ontrigger enter if want at right of pipe 
 }
