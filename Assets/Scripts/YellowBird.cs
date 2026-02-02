@@ -51,8 +51,6 @@ public class YellowBird : MonoBehaviour
     }
     
 
-
-
     // points
     // collider 
     // collides with pipes and trigger event (points) 
