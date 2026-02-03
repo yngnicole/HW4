@@ -20,6 +20,12 @@ public class GameController : MonoBehaviour
     private float _spawnTimer;
     private int _score;
     public bool IsGameOver { get; private set; }
+    
+    //singleton + locater
+    public static GameController Instance { get; private set; }
+    public YellowBird Player { get; private set; } //ref to player
+
+
 
     public delegate void ScoreChangedHandler(int newScore);
     public event ScoreChangedHandler OnScoreChanged;
@@ -30,9 +36,6 @@ public class GameController : MonoBehaviour
     public delegate void FlapHandler();
     public event FlapHandler OnPlayerFlapped;
 
-
-    public static GameController Instance { get; private set; }
-    public YellowBird Player { get; private set; } //ref to player
 
     public void Awake()
     {
@@ -61,7 +64,7 @@ public class GameController : MonoBehaviour
             return;
 
         _score++;
-        Debug.Log("GameController: score is now " + _score);
+        
         OnScoreChanged?.Invoke(_score);
     }
 
