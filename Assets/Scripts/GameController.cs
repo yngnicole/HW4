@@ -79,6 +79,9 @@ public class GameController : MonoBehaviour
     }
     private void Update()
     {
+        if (IsGameOver)
+            return;
+        
         _spawnTimer += Time.deltaTime;
 
         if (_spawnTimer >= _spawnInterval)

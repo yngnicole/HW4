@@ -10,7 +10,6 @@ public class YellowBird : MonoBehaviour
     [SerializeField] private float _jump;
     [SerializeField] private float _gravity = 15f;
     private bool _flap;
-    private int _pointsCollected;
 
     public delegate void PlayerEventHandler();
     public event PlayerEventHandler OnScored;

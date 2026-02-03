@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro _scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreText;
 
     private void OnEnable()
     {

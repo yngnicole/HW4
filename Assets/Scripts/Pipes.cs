@@ -28,6 +28,9 @@ public class Pipes : MonoBehaviour
             return;
         }
 
+        if (GameController.Instance != null && GameController.Instance.IsGameOver)
+            return;
+
     }
 
    
