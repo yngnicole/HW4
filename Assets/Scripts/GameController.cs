@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _minY = -2f;
     [SerializeField] private float _maxY = 2f;
     [SerializeField] private float _groundY = -4f;   
-    
+
     private float _spawnTimer;
     private int _score;
     public bool IsGameOver { get; private set; }
@@ -100,12 +100,11 @@ public class GameController : MonoBehaviour
     }
     public void SpawnPipes()
     {
-
         float centerY = UnityEngine.Random.Range(_minY, _maxY);
 
         // always on ground
         float bottomY = centerY - _gap;
-        if (bottomY > _groundY)
+         if (bottomY > _groundY)
         {
             centerY = _groundY + _gap;
         }

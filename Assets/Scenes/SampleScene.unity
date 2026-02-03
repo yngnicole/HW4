@@ -446,8 +446,8 @@ MonoBehaviour:
   _spawnX: 4
   _gap: 4
   _spawnInterval: 3
-  _minY: -3
-  _maxY: 3
+  _minY: -2
+  _maxY: 2
   _groundY: -4
 --- !u!1 &519420028
 GameObject:
