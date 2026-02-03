@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     }
     public void SpawnPipes()
     {
+
         float cameraHalfHeight = Camera.main.orthographicSize;
         float cameraHalfWidth = cameraHalfHeight * Camera.main.aspect;
 
@@ -49,6 +50,8 @@ public class GameController : MonoBehaviour
             _topPipePrefab, 
             new Vector3(_spawnX, topY, 0), 
             UnityEngine.Quaternion.identity);
+
+        
     }
 
     
