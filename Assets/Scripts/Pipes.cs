@@ -9,6 +9,21 @@ public class Pipes : MonoBehaviour
 
     private bool _isDestroyed;
 
+    private void OnEnable()
+    {
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.OnGameOver += HandleGameOver;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.OnGameOver -= HandleGameOver;
+        }
+    }
     private void Update()
     {
         MoveLeft();
@@ -32,6 +47,9 @@ public class Pipes : MonoBehaviour
             return;
 
     }
+    private void HandleGameOver()
+    {
+        Destroy(gameObject);
+    }
 
-   
 }
