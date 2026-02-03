@@ -7,31 +7,45 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private GameObject _topPipePrefab;
     [SerializeField] private GameObject _bottomPipePrefab;
-    [SerializeField] private float _minY = -2f;
-    [SerializeField] private float _maxY = 2f;
     [SerializeField] private float _pipeGap = 3f;
-    [SerializeField] private float _spawnX = 10f;
+    [SerializeField] private float _spawnX = 10f; //spawn location
+    [SerializeField] private float _spawnInterval = 2f;
 
+    private float _spawnTimer;
 
-    // creates pipes. destory. spawn location. random. range. and diff height. moves left. infinite 
-    // same interval but different hieghts 
+    private void Update()
+    {
+        _spawnTimer += Time.deltaTime;
+
+        if (_spawnTimer >= _spawnInterval)
+        {
+            SpawnPipes();
+            _spawnTimer = 0f;
+        }
+    }
     public void SpawnPipes()
     {
-        //instantiate pipes with equal interval horizontally but with different heights infinitely 
-        
-        //random center for pipe gap 
-        float centerY = Random.Range(_minY, _maxY);
+        float cameraHalfHeight = Camera.main.orthographicSize;
+        float cameraHalfWidth = cameraHalfHeight * Camera.main.aspect;
+
+        float pipeHeight = _bottomPipePrefab.GetComponent<SpriteRenderer>().bounds.size.y;
+
+        // vertical offset range
+        float maxOffset = cameraHalfHeight - pipeHeight - _pipeGap / 2f;
+        float offsetY = Random.Range(-maxOffset, maxOffset);
 
         //instantiate bottom pipe
+        float bottomY = -cameraHalfHeight + pipeHeight / 2f + offsetY;
         Instantiate(
             _bottomPipePrefab, 
-            new Vector3(_spawnX, centerY - _pipeGap / 2f, 0),
+            new Vector3(_spawnX, bottomY, 0), 
             UnityEngine.Quaternion.identity);
 
         //instantiate top pipe
+        float topY = cameraHalfHeight - pipeHeight / 2f + offsetY;
         Instantiate(
             _topPipePrefab, 
-            new Vector3(_spawnX, centerY + _pipeGap / 2f, 0),
+            new Vector3(_spawnX, topY, 0), 
             UnityEngine.Quaternion.identity);
     }
 
