@@ -13,15 +13,12 @@ public class Audio : MonoBehaviour
     {
         if (GameController.Instance != null)
         {
-            Debug.Log("Audio: subscribing to GameController events");
+            
             GameController.Instance.OnScoreChanged += HandleScoreChanged;
             GameController.Instance.OnGameOver += HandleGameOver;
             GameController.Instance.OnPlayerFlapped += HandleFlap;
         }
-        else
-        {
-            Debug.LogError("Audio: GameController.Instance is NULL in Start()");
-        }
+       
     }
 
     private void OnDestroy()
