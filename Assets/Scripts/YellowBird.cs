@@ -41,21 +41,22 @@ public class YellowBird : MonoBehaviour
             // bird jumps
             _playerRigidbody.AddForce
             (
-                Vector2.up * _jump, 
+                Vector2.up * _jump,
                 ForceMode2D.Impulse
             );
 
-            OnFlapped?.Invoke;
+            OnFlapped?.Invoke();
 
             _flap = false;
+        }
 
             // gravity pulls bird down 
-            if (_playerRigidbody.velocity.y < 0)
-            {
-                _playerRigidbody.AddForce(Vector2.down * _gravity);
-            }
-
+        if (_playerRigidbody.velocity.y < 0)
+        {
+            _playerRigidbody.AddForce(Vector2.down * _gravity);
         }
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -63,7 +64,7 @@ public class YellowBird : MonoBehaviour
         //The player gains a point if they pass a pipe without colliding with it, and: the number of points is displayed in the UI.earning a point plays a sound.
         if (collision.CompareTag("PointsWall"))
         {
-            OnScored?.Invoke;
+            OnScored?.Invoke();
             Destroy(collision.gameObject);
         }
     }
@@ -71,9 +72,9 @@ public class YellowBird : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // The player loses if they collide with a pipe, which: plays a sound. stops the game.
-        if (collision.CompareTag("Pipes"))
+        if (collision.collider.CompareTag("Pipes"))
         {
-            OnDied?.Invoke;
+            OnDied?.Invoke();
         }
     }
    

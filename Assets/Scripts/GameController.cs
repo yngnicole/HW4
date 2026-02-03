@@ -50,14 +50,14 @@ public class GameController : MonoBehaviour
         if (Player != null)
         {
             Player.OnScored += HandlePlayerScored;
-            Player.BirdDied += HandlePlayerDied;
-            Player.BirdFlapped += HandlePlayerFlapped;
+            Player.OnDied += HandlePlayerDied;
+            Player.OnFlapped += HandlePlayerFlapped;
         }
     }
 
     private void HandlePlayerScored()
     {
-        if (isGameOver)
+        if (IsGameOver)
             return;
 
         _score++;

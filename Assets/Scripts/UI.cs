@@ -11,7 +11,7 @@ public class UI : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameController.Instance != Null)
+        if (GameController.Instance != null)
         {
             GameController.Instance.OnScoreChanged += HandleScoreChanged;
         }
@@ -19,7 +19,7 @@ public class UI : MonoBehaviour
 
     private void OnDisable()
     {
-        if (GameController.Instance != Null)
+        if (GameController.Instance != null)
         {
             GameController.Instance.OnScoreChanged -= HandleScoreChanged;
         }
