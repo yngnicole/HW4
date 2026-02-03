@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -33,6 +34,7 @@ public class GameController : MonoBehaviour
         // vertical offset range
         float maxOffset = cameraHalfHeight - pipeHeight - _pipeGap / 2f;
         float offsetY = Random.Range(-maxOffset, maxOffset);
+    
 
         //instantiate bottom pipe
         float bottomY = -cameraHalfHeight + pipeHeight / 2f + offsetY;
@@ -49,7 +51,7 @@ public class GameController : MonoBehaviour
             UnityEngine.Quaternion.identity);
     }
 
-
+    
 
 
     //needs ref to player 
