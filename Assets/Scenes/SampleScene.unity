@@ -442,7 +442,7 @@ MonoBehaviour:
   _topPipePrefab: {fileID: 5550368243214658875, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
   _bottomPipePrefab: {fileID: 8470045076864400989, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
   _spawnX: 4
-  _gap: 3
+  _gap: 4
   _minY: -3
   _maxY: 3
   _spawnInterval: 3
