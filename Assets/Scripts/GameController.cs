@@ -22,13 +22,13 @@ public class GameController : MonoBehaviour
     public bool IsGameOver { get; private set; }
 
     public delegate void ScoreChangedHandler(int newScore);
-    public event ScoreChangedHandler ScoreChanged;
+    public event ScoreChangedHandler OnScoreChanged;
 
     public delegate void GameOverHandler();
-    public event GameOverHandler GameOver;
+    public event GameOverHandler OnGameOver;
 
     public delegate void FlapHandler();
-    public event FlapHandler PlayerFlapped;
+    public event FlapHandler OnPlayerFlapped;
 
 
     public static GameController Instance { get; private set; }
@@ -47,11 +47,11 @@ public class GameController : MonoBehaviour
         GameObject playerObj = GameObject.FindWithTag("Player");
         Player = playerObj.GetComponent<YellowBird>();
 
-        if (YellowBird != null)
+        if (Player != null)
         {
-            YellowBird.OnScored += HandlePlayerScored;
-            YellowBird.BirdDied += HandlePlayerDied;
-            YellowBird.BirdFlapped += HandlePlayerFlapped;
+            Player.OnScored += HandlePlayerScored;
+            Player.BirdDied += HandlePlayerDied;
+            Player.BirdFlapped += HandlePlayerFlapped;
         }
     }
 
@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour
             return;
 
         _score++;
-        ScoreChanged?.Invoke(_score);
+        OnScoreChanged?.Invoke(_score);
     }
 
     private void HandlePlayerDied()
@@ -70,12 +70,12 @@ public class GameController : MonoBehaviour
             return;
 
         IsGameOver = true;
-        GameOver?.Invoke();
+        OnGameOver?.Invoke();
     }
 
     private void HandlePlayerFlapped()
     {
-        PlayerFlapped?.Invoke();
+        OnPlayerFlapped?.Invoke();
     }
     private void Update()
     {

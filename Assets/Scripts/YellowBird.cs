@@ -13,9 +13,9 @@ public class YellowBird : MonoBehaviour
     private int _pointsCollected;
 
     public delegate void PlayerEventHandler();
-    public event PlayerEventHandler PointEarned;
-    public event PlayerEventHandler BirdDied;
-    public event PlayerEventHandler BirdFlapped;
+    public event PlayerEventHandler OnScored;
+    public event PlayerEventHandler OnDied;
+    public event PlayerEventHandler OnFlapped;
 
     void Update()
     {
@@ -45,7 +45,7 @@ public class YellowBird : MonoBehaviour
                 ForceMode2D.Impulse
             );
 
-            BirdFlapped?.Invoke;
+            OnFlapped?.Invoke;
 
             _flap = false;
 
@@ -63,7 +63,7 @@ public class YellowBird : MonoBehaviour
         //The player gains a point if they pass a pipe without colliding with it, and: the number of points is displayed in the UI.earning a point plays a sound.
         if (collision.CompareTag("PointsWall"))
         {
-            PointEarned?.Invoke;
+            OnScored?.Invoke;
             Destroy(collision.gameObject);
         }
     }
@@ -73,7 +73,7 @@ public class YellowBird : MonoBehaviour
         // The player loses if they collide with a pipe, which: plays a sound. stops the game.
         if (collision.CompareTag("Pipes"))
         {
-            BirdDied?.Invoke;
+            OnDied?.Invoke;
         }
     }
    
