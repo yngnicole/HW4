@@ -441,8 +441,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topPipePrefab: {fileID: 5550368243214658875, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
   _bottomPipePrefab: {fileID: 8470045076864400989, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
-  _pipeGap: 2.5
   _spawnX: 4
+  _gap: 3
+  _minY: -3
+  _maxY: 3
   _spawnInterval: 3
 --- !u!1 &519420028
 GameObject:
@@ -704,16 +706,12 @@ PrefabInstance:
       value: Mytileset (2)_52 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 9046631615410695374, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9046631615410695374, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 9046631615410695374, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.9
+      value: -3.6907
       objectReference: {fileID: 0}
     - target: {fileID: 9046631615410695374, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
       propertyPath: m_LocalPosition.z
@@ -761,16 +759,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4072434250447013466, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4072434250447013466, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.48
       objectReference: {fileID: 0}
     - target: {fileID: 4072434250447013466, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.76
+      value: 3.6698
       objectReference: {fileID: 0}
     - target: {fileID: 4072434250447013466, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
       propertyPath: m_LocalPosition.z
