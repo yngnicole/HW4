@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
 
         // vertical offset range
         float maxOffset = cameraHalfHeight - pipeHeight - _pipeGap / 2f;
-        float offsetY = Random.Range(-maxOffset, maxOffset);
+        float offsetY = UnityEngine.Random.Range(-maxOffset, maxOffset);
     
 
         //instantiate bottom pipe
