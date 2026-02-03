@@ -9,17 +9,22 @@ public class Audio : MonoBehaviour
     [SerializeField] private AudioClip _scoreClip;
     [SerializeField] private AudioClip _hitClip;
 
-    private void OnEnable()
+    private void Start()
     {
         if (GameController.Instance != null)
         {
+            Debug.Log("Audio: subscribing to GameController events");
             GameController.Instance.OnScoreChanged += HandleScoreChanged;
             GameController.Instance.OnGameOver += HandleGameOver;
             GameController.Instance.OnPlayerFlapped += HandleFlap;
         }
+        else
+        {
+            Debug.LogError("Audio: GameController.Instance is NULL in Start()");
+        }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         if (GameController.Instance != null)
         {
@@ -31,20 +36,30 @@ public class Audio : MonoBehaviour
 
     private void HandleFlap()
     {
-        if (_flapClip != null)
+        if (_audioSource != null && _flapClip != null)
+        {
             _audioSource.PlayOneShot(_flapClip);
+        }
+            
     }
 
     private void HandleScoreChanged(int newScore)
     {
-        if (_scoreClip != null)
+        if (_audioSource != null && _scoreClip != null)
+        {
             _audioSource.PlayOneShot(_scoreClip);
+        }
+            
     }
 
     private void HandleGameOver()
     {
-        if (_hitClip != null)
+        if (_audioSource != null && _hitClip != null)
+        {
+
             _audioSource.PlayOneShot(_hitClip);
+        }
+            
     }
 
 }
