@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PointsWall : MonoBehaviour
+public class PointsWall : Pipes
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +13,5 @@ public class PointsWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-}
+        MoveLeft();
+    }}

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Pipes : MonoBehaviour
 {
-    [SerializeField] private float _destoryPipe = -12f;
+    [SerializeField] private float _destroyPipe = -12f;
     [SerializeField] private float _moveSpeed;
 
     private bool _isDestroyed;
 
-    void Update()
+    private void Update()
+    {
+        MoveLeft();
+    }
+    public void MoveLeft()
     {
         if (_isDestroyed)
             return;
@@ -18,11 +22,12 @@ public class Pipes : MonoBehaviour
         transform.Translate(Vector2.left * _moveSpeed * Time.deltaTime);
 
         // if pipe off screen, gets destroyed
-        if (transform.position.x < _destoryPipe)
+        if (transform.position.x < _destroyPipe)
         {
-            Destory(gameObject);
+            Destroy(gameObject);
             return;
         }
+
     }
 
 
