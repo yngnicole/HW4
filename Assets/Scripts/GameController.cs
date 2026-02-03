@@ -30,7 +30,8 @@ public class GameController : MonoBehaviour
         float cameraHalfHeight = Camera.main.orthographicSize;
         float cameraHalfWidth = cameraHalfHeight * Camera.main.aspect;
 
-        float pipeHeight = _bottomPipePrefab.GetComponent<SpriteRenderer>().bounds.size.y;
+        float pipeHeight = 10f;
+            //_bottomPipePrefab.GetComponent<SpriteRenderer>().bounds.size.y;
 
         // vertical offset range
         float maxOffset = cameraHalfHeight - pipeHeight - _pipeGap / 2f;
