@@ -11,12 +11,16 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _bottomPipePrefab;
     [SerializeField] private GameObject _pointsWall;
 
+    //pawn
     [SerializeField] private float _spawnX = 10f;
     [SerializeField] private float _gap = 5f;
-    [SerializeField] private float _minY = -2f;
-    [SerializeField] private float _maxY = 2f;
     [SerializeField] private float _spawnInterval = 2f;
 
+    // vertical limits
+    [SerializeField] private float _minY = -2f;
+    [SerializeField] private float _maxY = 2f;
+    [SerializeField] private float _groundY = -4f;   
+    
     private float _spawnTimer;
     private int _score;
     public bool IsGameOver { get; private set; }
@@ -26,7 +30,7 @@ public class GameController : MonoBehaviour
     public YellowBird Player { get; private set; } //ref to player
 
 
-
+    // events
     public delegate void ScoreChangedHandler(int newScore);
     public event ScoreChangedHandler OnScoreChanged;
 
@@ -98,6 +102,13 @@ public class GameController : MonoBehaviour
     {
 
         float centerY = UnityEngine.Random.Range(_minY, _maxY);
+
+        // always on ground
+        float bottomY = centerY - _gap;
+        if (bottomY > _groundY)
+        {
+            centerY = _groundY + _gap;
+        }
 
         // Bottom pipe
         Instantiate(_bottomPipePrefab, new Vector3(_spawnX, centerY - _gap, 0), Quaternion.identity);
