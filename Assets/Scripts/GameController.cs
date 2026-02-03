@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -17,6 +18,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private float _spawnInterval = 2f;
 
     private float _spawnTimer;
+    private int _score;
+    public bool IsGameOver { get; private set; }
+
+    public delegate void ScoreChangedHandler(int newScore);
+    public event ScoreChangedHandler ScoreChanged;
+
+    public delegate void GameOverHandler();
+    public event GameOverHandler GameOver;
+
+    public delegate void FlapHandler();
+    public event FlapHandler PlayerFlapped;
+
 
     public static GameController Instance { get; private set; }
     public YellowBird Player { get; private set; } //ref to player
@@ -33,9 +46,37 @@ public class GameController : MonoBehaviour
 
         GameObject playerObj = GameObject.FindWithTag("Player");
         Player = playerObj.GetComponent<YellowBird>();
+
+        if (YellowBird != null)
+        {
+            YellowBird.OnScored += HandlePlayerScored;
+            YellowBird.BirdDied += HandlePlayerDied;
+            YellowBird.BirdFlapped += HandlePlayerFlapped;
+        }
     }
 
+    private void HandlerPlayerScored()
+    {
+        if (isGameOver)
+            return;
 
+        _score++;
+        ScoreChanged?.Invoke(_score);
+    }
+
+    private void HandlePlayerDied()
+    {
+        if (IsGameOver)
+            return;
+
+        IsGameOver = true;
+        GameOver?.Invoke();
+    }
+
+    private void HandlePlayerFlapped()
+    {
+        PlayerFlapped?.Invoke();
+    }
     private void Update()
     {
         _spawnTimer += Time.deltaTime;
@@ -61,8 +102,11 @@ public class GameController : MonoBehaviour
         Instantiate(_pointsWall, new Vector3(_spawnX + 1f, centerY, 0f), Quaternion.identity);
     }
 
-    
+ 
 
-    // subs to ui and audio
-    // The score code uses a Singleton to subscribe to any events raised.
+}
+
+    
+    // events and delegate
+    // The score code uses a Singleton to subscribe to any events raised. gamecontroller subscribes to player and then audio and ui subscribes to player 
 }

@@ -10,6 +10,12 @@ public class YellowBird : MonoBehaviour
     [SerializeField] private float _jump;
     [SerializeField] private float _gravity = 15f;
     private bool _flap;
+    private int _pointsCollected;
+
+    public delegate void PlayerEventHandler();
+    public event PlayerEventHandler PointEarned;
+    public event PlayerEventHandler BirdDied;
+    public event PlayerEventHandler BirdFlapped;
 
     void Update()
     {
@@ -39,6 +45,8 @@ public class YellowBird : MonoBehaviour
                 ForceMode2D.Impulse
             );
 
+            BirdFlapped?.Invoke;
+
             _flap = false;
 
             // gravity pulls bird down 
@@ -49,13 +57,24 @@ public class YellowBird : MonoBehaviour
 
         }
     }
-    
 
-    // points
-    // collider 
-    // collides with pipes and trigger event (points) 
-    // subscribe to events: UI and Audio maybe not bc not locater
-    // collision
-    // The player loses if they collide with a pipe, which: plays a sound. stops the game.
-    // The player gains a point if they pass a pipe without colliding with it, and: the number of points is displayed in the UI.earning a point plays a sound.
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //The player gains a point if they pass a pipe without colliding with it, and: the number of points is displayed in the UI.earning a point plays a sound.
+        if (collision.CompareTag("PointsWall"))
+        {
+            PointEarned?.Invoke;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // The player loses if they collide with a pipe, which: plays a sound. stops the game.
+        if (collision.CompareTag("Pipes"))
+        {
+            BirdDied?.Invoke;
+        }
+    }
+   
 }
