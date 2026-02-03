@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
             return;
 
         _score++;
+        Debug.Log("GameController: score is now " + _score);
         OnScoreChanged?.Invoke(_score);
     }
 

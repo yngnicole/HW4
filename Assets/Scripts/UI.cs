@@ -9,15 +9,20 @@ public class UI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _scoreText;
 
-    private void OnEnable()
+    private void Start()
     {
         if (GameController.Instance != null)
         {
+            Debug.Log("UI: subscribing to OnScoreChanged");
             GameController.Instance.OnScoreChanged += HandleScoreChanged;
+        }
+        else
+        {
+            Debug.LogWarning("UI: GameController.Instance is null in OnEnable");
         }
     }
 
-    private void OnDisable()
+    private void OnDestory()
     {
         if (GameController.Instance != null)
         {
@@ -27,9 +32,14 @@ public class UI : MonoBehaviour
 
     private void HandleScoreChanged(int newScore)
     {
+        Debug.Log("UI: received score " + newScore);
         if (_scoreText != null)
         {
             _scoreText.text = newScore.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("UI: _scoreText is NULL!");
         }
     }
 }
