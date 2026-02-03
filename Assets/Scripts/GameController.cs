@@ -55,7 +55,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void HandlerPlayerScored()
+    private void HandlePlayerScored()
     {
         if (isGameOver)
             return;
@@ -102,11 +102,4 @@ public class GameController : MonoBehaviour
         Instantiate(_pointsWall, new Vector3(_spawnX + 1f, centerY, 0f), Quaternion.identity);
     }
 
- 
-
-}
-
-    
-    // events and delegate
-    // The score code uses a Singleton to subscribe to any events raised. gamecontroller subscribes to player and then audio and ui subscribes to player 
 }
