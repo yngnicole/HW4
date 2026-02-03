@@ -324,6 +324,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 38686504}
   m_CullTransparentMesh: 1
+--- !u!1 &129057169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6153463758671574861, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+  m_PrefabInstance: {fileID: 4221460508156471239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &142523303
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topPipePrefab: {fileID: 5550368243214658875, guid: ad51f5baa98d32142a48c5764a68c415, type: 3}
   _bottomPipePrefab: {fileID: 8470045076864400989, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
+  _pointsWall: {fileID: 129057169}
   _spawnX: 4
   _gap: 4
   _minY: -3
@@ -750,6 +756,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87fae5a2cb75f614fb93a3c8a3fc8939, type: 3}
+--- !u!1001 &4221460508156471239
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946968131296220186, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6153463758671574861, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
+      propertyPath: m_Name
+      value: PointsWall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d88c9ace8fe0a74ebe655a41f3fbb44, type: 3}
 --- !u!1001 &4243204509797107339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -847,6 +910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: YellowBird-Idle_6
       objectReference: {fileID: 0}
+    - target: {fileID: 817409154165385368, guid: 96db20901d8ccd6418d8147c7d5d4145, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6268493195969196091, guid: 96db20901d8ccd6418d8147c7d5d4145, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1706303
@@ -914,3 +981,4 @@ SceneRoots:
   - {fileID: 1327484254}
   - {fileID: 142523307}
   - {fileID: 4248675}
+  - {fileID: 4221460508156471239}
